@@ -38,13 +38,13 @@ const ProfileForm = () => {
          placeholder='Имя...'
          />
 
-          <Form.Item label="Фамилия" className={style.formItem}>
-            <Input 
-              placeholder="Введите фамилию" 
-              {...register("surname")}
-              onChange={(e) => setValue("surname", e.target.value)}
-            />
-          </Form.Item>
+         <InputController
+         id='surname'
+         name='surname'
+         label='Фамилия'
+         control={control}
+         placeholder='Фамилия...'
+         />
 
           <Form.Item label="О себе (Bio)" className={style.formItem}>
             <TextArea 

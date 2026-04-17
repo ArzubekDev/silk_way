@@ -22,7 +22,7 @@ const InputController = <T extends FieldValues>({
   ...props
 }: InputControllerProps<T>) => {
   return (
-    <div className={style.profile}>
+    <div className={style.form}>
       <div className={style.content}>
         <label className={style.contentName} htmlFor={id}>
           {label}
