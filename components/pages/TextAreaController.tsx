@@ -13,33 +13,37 @@ export interface InputControllerProps<T extends FieldValues> extends Omit<InputP
 }
 
 const TextAreaController = <T extends FieldValues>({
-    id,
-    name,
-label,
-control,
-placeholder,
-error,
-...props
+  id,
+  name,
+  label,
+  control,
+  placeholder,
+  error,
+  ...props
 }: InputControllerProps<T>) => {
-    <div className={style.form}>
-<div className={style.content}>
-<label className={style.contentName} htmlFor={id}>{label}</label>
-<Controller
-name={name}
-control={control}
-render={({field, fieldState: {error: fieldError}}) => (
-    <>
-  <Input
-  id={id}
-  {...field}
-  {...props}
-  name={name as string}
-  status={fieldError ? "error" : props.status}
-  placeholder={fieldError ? style.errorPlaceholder : ""}
-  />  
-    </>
-)}
-/>
-</div>
+  <div className={style.form}>
+    <div className={style.content}>
+      <label className={style.contentName} htmlFor={id}>
+        {label}
+      </label>
+      <Controller
+        name={name}
+        control={control}
+        render={({ field, fieldState: { error: fieldError } }) => (
+          <>
+            <Input
+              id={id}
+              {...field}
+              {...props}
+              name={name as string}
+              status={fieldError ? 'error' : props.status}
+              placeholder={fieldError ? style.errorPlaceholder : ''}
+            />
+          </>
+        )}
+      />
     </div>
-}
+  </div>;
+};
+
+export default TextAreaController
