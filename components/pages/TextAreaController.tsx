@@ -3,7 +3,7 @@ import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 
 import style from './style.module.scss';
 
-export interface InputControllerProps<T extends FieldValues> extends Omit<InputProps, 'name'> {
+export interface InputControllerProps<T extends FieldValues> extends Omit<InputProps, 'bio'> {
   id?: string;
   name: Path<T>;
   control: Control<T>;
@@ -21,6 +21,8 @@ const TextAreaController = <T extends FieldValues>({
   error,
   ...props
 }: InputControllerProps<T>) => {
+  return(
+
   <div className={style.form}>
     <div className={style.content}>
       <label className={style.contentName} htmlFor={id}>
@@ -43,7 +45,8 @@ const TextAreaController = <T extends FieldValues>({
         )}
       />
     </div>
-  </div>;
+  </div>
+  )
 };
 
 export default TextAreaController

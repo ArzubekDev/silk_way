@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Button, Input, Form } from 'antd';
 import style from './Profile.module.scss';
 import InputController from '../InputController';
+import TextAreaController from '../TextAreaController';
 
 const { TextArea } = Input;
 
@@ -37,7 +38,6 @@ const ProfileForm = () => {
          control={control}
          placeholder='Имя...'
          />
-
          <InputController
          id='surname'
          name='surname'
@@ -45,17 +45,13 @@ const ProfileForm = () => {
          control={control}
          placeholder='Фамилия...'
          />
-
-          <Form.Item label="О себе (Bio)" className={style.formItem}>
-            <TextArea 
-              rows={4} 
-              placeholder="Расскажите о себе" 
-              maxLength={200}
-              {...register("bio")}
-              onChange={(e) => setValue("bio", e.target.value)}
-              showCount
-            />
-          </Form.Item>
+         <TextAreaController
+         id='bio'
+         name='bio'
+         label='Биография'
+         control={control}
+         placeholder='Биография...'
+         />
 
           <div className={style.actions}>
             <Button type="primary" htmlType="submit" block size="large">
