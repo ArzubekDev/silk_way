@@ -1,0 +1,84 @@
+$header-gap: 30px;
+$icons-gap: 7px;
+$main-color: #ef5b00;
+
+#header {
+  background-color: #efefef;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .header__left {
+      display: flex;
+      align-items: center;
+      gap: $header-gap;
+      &--logo {
+        font-size: 24px;
+        color: $main-color;
+      }
+      &--search {
+        position: relative;
+        width: 330px;
+        height: 34px;
+        border: none;
+        border-radius: 20px;
+        background-color: transparent;
+        input {
+          position: absolute;
+          inset: 0;
+          padding-inline: 50px;
+          transition: padding .1s ease-in;
+          width: 100%;
+          height: 100%;
+          border: none;
+          background-color: #dbe4f0;
+          border-radius: inherit;
+        }
+
+        &--icon {
+          position: absolute;
+          top: 15%;
+          left: 20px;
+          color: #b3becddb;
+          transition: all .1s ease-in;
+        }
+
+        &:focus-within {
+            input {
+                padding-inline: 22px;
+            }
+          .header__left--search--icon {
+            opacity: 0;
+            transform: translateX(-10px);
+          }
+        }
+      }
+    }
+    .header__right--nav {
+      display: flex;
+      align-items: center;
+      gap: $header-gap;
+      a {
+        display: flex;
+        align-items: center;
+        color: #545454;
+        gap: $icons-gap;
+
+        &:hover {
+            color: $main-color;
+        }
+      }
+      &__user-logo {
+        cursor: pointer;
+        object-fit: cover;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
