@@ -2,6 +2,7 @@
 import { useForm } from 'react-hook-form';
 import { Button, Input, Form } from 'antd';
 import style from './Profile.module.scss';
+import InputController from '../InputController';
 
 const { TextArea } = Input;
 
@@ -12,36 +13,31 @@ interface IProfileForm {
 }
 
 const ProfileForm = () => {
-  const { register, handleSubmit, setValue, watch } = useForm<IProfileForm>({
+  const { register, handleSubmit, setValue, watch, control } = useForm<IProfileForm>({
     defaultValues: {
-      name: "Асан",
-      surname: "Усонов",
-      bio: "Мен программистмин..."
+      name: "",
+      surname: "",
+      bio: ""
     }
   });
 
   const onFinish = (data: IProfileForm) => {
     console.log("Жаңы маалыматтар:", data);
-    // Бул жерде API'ге жиберебиз
   };
 
   return (
     <section className={style.profile}>
       <div className={style.card}>
         <h2 className={style.title}>Редактировать профиль</h2>
-        
         <Form layout="vertical" onFinish={handleSubmit(onFinish)}>
-          
-          {/* Аты (Name) */}
-          <Form.Item label="Имя" className={style.formItem}>
-            <Input 
-              placeholder="Введите имя" 
-              {...register("name")} 
-              onChange={(e) => setValue("name", e.target.value)}
-            />
-          </Form.Item>
+         <InputController
+         id='name'
+         name='name'
+         label='Имя'
+         control={control}
+         placeholder='Имя...'
+         />
 
-          {/* Фамилиясы (Surname) */}
           <Form.Item label="Фамилия" className={style.formItem}>
             <Input 
               placeholder="Введите фамилию" 
@@ -50,7 +46,6 @@ const ProfileForm = () => {
             />
           </Form.Item>
 
-          {/* Bio (О себе) */}
           <Form.Item label="О себе (Bio)" className={style.formItem}>
             <TextArea 
               rows={4} 
@@ -67,7 +62,6 @@ const ProfileForm = () => {
               Сохранить изменения
             </Button>
           </div>
-
         </Form>
       </div>
     </section>
