@@ -1,0 +1,43 @@
+.profile {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: #f0f2f5;
+  min-height: 100vh;
+
+  .card {
+    background: #fff;
+    padding: 32px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    .title {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #1a1a1a;
+      text-align: center;
+    }
+  }
+
+  .formItem {
+    margin-bottom: 20px;
+    
+    label {
+      font-weight: 500;
+      color: #4a4a4a;
+    }
+  }
+
+  .actions {
+    margin-top: 30px;
+
+    button {
+      height: 45px;
+      font-weight: 600;
+      border-radius: 8px;
+    }
+  }
+}

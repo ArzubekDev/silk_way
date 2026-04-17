@@ -1,7 +1,11 @@
+'use client'
 import { Heart, Search, ShoppingBag, ShoppingCart } from 'lucide-react';
 import './Header.scss';
+import { useRouter } from 'next/navigation';
 
 const Header = () => {
+  const route = useRouter()
+
   return (
     <header id="header">
       <div className="container">
@@ -30,6 +34,7 @@ const Header = () => {
           </a>
 
           <img
+onClick={() => route.push("/profile")}
             className="header__right--nav__user-logo"
             src={
               'https://st.depositphotos.com/2309453/3449/i/450/depositphotos_34490345-stock-photo-confident-casual-unshaven-young-man.jpg'
