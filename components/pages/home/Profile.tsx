@@ -5,6 +5,7 @@ import style from './Profile.module.scss';
 import InputController from '../InputController';
 import dynamic from 'next/dynamic';
 import type { EditorProps } from '../EditorController';
+import LogoUpload from '../FileUpload';
 
 const EditorController = dynamic<EditorProps<IProfileForm>>(() => import('../EditorController'), { 
   ssr: false,
@@ -35,6 +36,7 @@ const ProfileForm = () => {
     <section className={style.profile}>
       <div className={style.card}>
         <h2 className={style.title}>Редактировать профиль</h2>
+        <LogoUpload control={control}/>
         <Form layout="vertical" onFinish={handleSubmit(onFinish)}>
           <InputController
             id='name'

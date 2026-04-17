@@ -68,3 +68,5 @@ const LogoUpload = ({ control }: { control: any }) => {
     </div>
   );
 };
+
+export default LogoUpload
