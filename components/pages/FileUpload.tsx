@@ -26,7 +26,7 @@ const LogoUpload = ({ control }: { control: any }) => {
             <input
               type="file"
               ref={fileInputRef}
-              accept="image/*,video/*" // Видеону да кабыл алуу
+              accept="image/*,video/*" 
               style={{ display: 'none' }}
               onChange={(e) => {
                 const file = e.target.files?.[0];
