@@ -1,5 +1,4 @@
 import LayoutSite from '@/components/layout/layout';
-import Sidebar from '@/components/layout/sidebar/Sidebar';
 import { FC, ReactNode } from 'react';
 import '../../globals.scss';
 
@@ -12,7 +11,6 @@ const LayoutHome: FC<LayoutHomeProps> = ({ children }) => {
      <div className="container">
        <div className="home-layout">
         <div className="home-layoutContainer">
-          <Sidebar />
           <main className="main">{children}</main>
         </div>
       </div>
