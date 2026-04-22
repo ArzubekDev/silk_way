@@ -1,4 +1,5 @@
 import theme from '@/config/themeColor';
+import TanstackQueryProvider from '@/shared/provider/TanstackQueryProvider';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { ConfigProvider } from 'antd';
 import type { Metadata } from 'next';
@@ -28,8 +29,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
       <body>
-        <ConfigProvider theme={theme} >
-        <AntdRegistry>{children}</AntdRegistry>
+        <ConfigProvider theme={theme}>
+          <AntdRegistry>
+            <TanstackQueryProvider>{children}</TanstackQueryProvider>
+          </AntdRegistry>
         </ConfigProvider>
       </body>
     </html>
