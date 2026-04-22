@@ -1,3 +1,4 @@
+'use client'
 import Card from '@/ui/card/Card';
 import './Home.scss';
 import { useQuery } from '@tanstack/react-query';
@@ -15,7 +16,7 @@ const Home = () => {
   return (
     <section className="home">
       <div className="home--content">
-        {products && products.map((el:any) => <Card el={el} key={el.id} />)}
+        {products?.map((el:any) => <Card el={el} key={el.id} />)}
       </div>
     </section>
   );

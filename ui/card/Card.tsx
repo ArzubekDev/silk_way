@@ -1,18 +1,45 @@
-import { ItemType } from '@/components/pages/home/Home';
-import './Card.scss';
+import styles from './Card.module.scss';
 
-type CardProps = {
-  el: ItemType;
-};
+interface ProductProps {
+  el: {
+    id: number;
+    name: string;
+    description?: string;
+    price: number | string;
+    imageUrl?: string;
+    tags?: string;
+  };
+}
 
-const Card = ({ el }: CardProps) => {
+const Card = ({ el }: ProductProps) => {
+  const tagList = el.tags ? el.tags.split(',').slice(0, 2) : [];
+
   return (
-    <div className="card">
-      <img src={el.image} alt={el.name} className='card--image'/>
-      <div className="card--content">
-        {el.popular && <p>{el.popular}</p>}
+    <div className={styles.card}>
+      <div className={styles.imageWrapper}>
+        <img 
+          src={el.imageUrl || 'https://via.placeholder.com/300'} 
+          alt={el.name} 
+        />
+        {tagList.length > 0 && (
+          <div className={styles.tags}>
+            {tagList.map((tag, i) => (
+              <span key={i}>{tag.trim()}</span>
+            ))}
+          </div>
+        )}
+      </div>
+      
+      <div className={styles.content}>
         <h3>{el.name}</h3>
-        <button>$ {el.price}</button>
+        <p className={styles.description}>
+          {el.description || 'Нет описания'}
+        </p>
+        
+        <div className={styles.footer}>
+          <span className={styles.price}>{Number(el.price).toLocaleString()} сом</span>
+          <button>Купить</button>
+        </div>
       </div>
     </div>
   );
